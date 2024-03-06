@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Date Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #clock {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Current Time and Date</h1>
+    <div id="clock">
+        <h2 id="date"></h2>
+        <h2 id="time"></h2>
+    </div>
+
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+            var month = monthNames[now.getMonth()];
+            var date = now.getDate();
+            var year = now.getFullYear();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var dateString = month + '/' + date + '/' + year  
+            var timestring= hours + ':' + minutes + ':' + seconds;
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('time').textContent = timestring;
+        }
+
+        
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
